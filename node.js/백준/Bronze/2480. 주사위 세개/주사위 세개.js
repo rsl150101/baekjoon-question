@@ -1,25 +1,14 @@
 const fs = require('fs');
 
-const input = fs.readFileSync('/dev/stdin').toString().split(' ');
+const input = fs.readFileSync('/dev/stdin').toString().split(' ').map((v)=> Number(v));
 
-const A = parseInt(input[0]);
-const B = parseInt(input[1]);
-const C = parseInt(input[2]);
+const uniqueNumArr = new Set(input)
 
-if(A === B){
-    if(B === C){
-        console.log(10000 + A*1000)
-    }else{
-        console.log(1000 + A*100)
-    }
+if(uniqueNumArr.size === 1){
+    console.log(10000 + input[0] * 1000)
+}else if(uniqueNumArr.size === 2){
+    input.sort((a, b) => a-b)
+    console.log(1000 + input[1] * 100)
 }else{
-    if(B === C){
-        console.log(1000 + B*100)
-    }else if(A===C){
-        console.log(1000 + A*100)
-    }else{
-        const arr = [A,B,C]
-        arr.sort((a,b) => b-a)
-        console.log(arr[0]*100)
-    }
+    console.log(Math.max(...input) * 100)
 }
