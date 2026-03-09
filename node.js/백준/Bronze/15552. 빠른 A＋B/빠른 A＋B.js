@@ -11,4 +11,4 @@ testArr.forEach((v) => {
   result += (A + B) + '\n';
 });
 
-console.log(result.trimEnd())
+console.log(result)
