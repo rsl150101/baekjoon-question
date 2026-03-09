@@ -2,14 +2,13 @@ const fs = require('fs');
 
 const input = fs.readFileSync('/dev/stdin').toString().split('\n');
 
-const T = parseInt(input[0]);
-let result = '';
+const testArr = input.slice(1)
+let result = ''
 
-for (let i = 1; i <= T; i++) {
-    if (!input[i]) continue;
-    
-    const [A, B] = input[i].split(' ').map(Number);
-    result += (A + B) + '\n';
-}
+testArr.forEach((v) => {
+  if(!v) return;
+  const [A, B] = v.split(" ").map(Number);
+  result += (A + B) + '\n';
+});
 
-process.stdout.write(result);
+console.log(result.trimEnd())
