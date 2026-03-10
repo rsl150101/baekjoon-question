@@ -1,7 +1,6 @@
 const fs = require('fs');
 
 const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
-
 let result = ''
 
 input.forEach((v) => {
@@ -9,7 +8,5 @@ input.forEach((v) => {
   if(A + B === 0) return
   result += (A + B) + '\n';
 });
-    
-
 
 console.log(result)
