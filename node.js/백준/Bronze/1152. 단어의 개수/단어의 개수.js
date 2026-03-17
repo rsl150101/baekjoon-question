@@ -1,5 +1,9 @@
 const fs = require('fs');
 
-const input = fs.readFileSync(0).toString().trim().split(' ').filter((word)=> word !== "").length;
+const input = fs.readFileSync(0).toString().trim().split(' ');
 
-console.log(input)
+if(input[0] === ""){
+    console.log(0)
+}else{
+    console.log(input.length)    
+}
