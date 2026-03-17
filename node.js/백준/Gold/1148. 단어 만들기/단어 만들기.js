@@ -18,7 +18,7 @@ function ableWord(word, puzzle) {
     }
   }
 
-  return isCollected >= word.length && word;
+  return isCollected === word.length && word;
 }
 
 puzzles.forEach((puzzle) => {
