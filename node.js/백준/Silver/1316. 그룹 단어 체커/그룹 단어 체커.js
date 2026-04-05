@@ -4,22 +4,20 @@ const input = fs.readFileSync(0).toString().trim().split('\n').splice(1);
 
 let count = 0;
 input.forEach((v) => {
-  let prevChar = "";
-  let isGroupWord = true;
-  const know = new Set();
-
+  let prevAlphabet = v[0];
   for (let i = 0; i < v.length; i++) {
-    if (prevChar !== v[i]) {
-      if (know.has(v[i])) {
-        isGroupWord = false;
+    if (prevAlphabet !== v[i + 1]) {
+      if (v.lastIndexOf(prevAlphabet) > i) {
         break;
+      } else {
+        prevAlphabet = v[i + 1];
       }
-      know.add(v[i]);
     }
-    prevChar = v[i];
-  }
 
-  if (isGroupWord) count += 1;
+    if (i === v.length - 1) {
+      count += 1;
+    }
+  }
 });
 
 console.log(count);
