@@ -7,9 +7,8 @@ let result = "";
 
 for (let i = 0; i < maxLength; i++) {
   for (let j = 0; j < input.length; j++) {
-    const line = input[j].split("");
-    if (line[i]) {
-      result += line[i];
+    if (input[j][i]) {
+      result += input[j][i];
     }
   }
 }
